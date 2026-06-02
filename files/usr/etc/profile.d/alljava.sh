@@ -11,11 +11,11 @@
 
 if command -v alts >/dev/null 2>&1; then
     if alts -t java >/dev/null 2>&1; then
-        JAVA_TARGET=$(alts -t java)
+        JAVA_TARGET=$(realpath $(alts -t java))
     fi
 
     if alts -t javac >/dev/null 2>&1; then
-        JAVAC_TARGET=$(alts -t javac)
+        JAVAC_TARGET=$(realpath $(alts -t javac))
     fi
 fi
 
@@ -32,7 +32,7 @@ if [ -z "$JAVAC_TARGET" ]; then
 fi
 
 if [ ! -z "$JAVA_TARGET" ]; then
-    export JRE_HOME="${JRE_HOME%/bin/java}"
+    export JRE_HOME="${JAVA_TARGET%/bin/java}"
     unset JAVA_TARGET
 fi
 
