@@ -14,11 +14,13 @@ if ( $? == 0 ) then
     alts -t java >& /dev/null
     if ( $? == 0 ) then
         set JAVA_TARGET `alts -t java`
+        set JAVA_TARGET `realpath $JAVA_TARGET`
     endif
 
     alts -t javac >& /dev/null
     if ( $? == 0 ) then
         set JAVAC_TARGET `alts -t javac`
+        set JAVAC_TARGET `realpath $JAVAC_TARGET`
     endif
 endif
 
