@@ -47,7 +47,7 @@ case "$-" in
 	unalias ls 2>/dev/null
     fi
     case "$is" in
-	bash|dash|ash)
+	dash|ash)
 	    _ls ()
 	    {
 		local IFS=' '
