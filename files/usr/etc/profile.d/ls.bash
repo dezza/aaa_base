@@ -46,10 +46,7 @@ case "$-" in
     if test "$is" != "ash" ; then
 	unalias ls 2>/dev/null
     fi
-    case "$is" in
-	zsh)
-	*)  alias ls='/usr/bin/ls $LS_OPTIONS' ;;
-    esac
+    alias ls='/usr/bin/ls $LS_OPTIONS'
     alias dir='ls -l'
     alias ll='ls -l'
     alias la='ls -la'
